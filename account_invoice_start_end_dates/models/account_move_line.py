@@ -19,11 +19,11 @@ class AccountMoveLine(models.Model):
         for moveline in self:
             if moveline.start_date and not moveline.end_date:
                 raise ValidationError(
-                    _("Missing End Date for line '%s'.") % (moveline.display_name)
+                    _(f"Missing End Date for line '{moveline.display_name}'.")
                 )
             if moveline.end_date and not moveline.start_date:
                 raise ValidationError(
-                    _("Missing Start Date for line '%s'.") % (moveline.display_name)
+                    _(f"Missing Start Date for line '{moveline.display_name}'.")
                 )
             if (
                 moveline.end_date

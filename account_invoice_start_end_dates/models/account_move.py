@@ -20,9 +20,8 @@ class AccountMove(models.Model):
                     raise UserError(
                         _(
                             "Missing Start Date and End Date for invoice "
-                            "line with Product '%s' which has the "
+                            f"line with Product '{line.product_id.display_name}' which has the "
                             "property 'Must Have Start/End Dates'."
                         )
-                        % (line.product_id.display_name)
                     )
         return super()._post(soft=soft)
